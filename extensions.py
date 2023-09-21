@@ -29,11 +29,8 @@ class CurrencyConverter:
 
         r = requests.get(f"https://min-api.cryptocompare.com/data/price?fsym={quote_ticker}&tsyms={base_ticker}")
 
-        def filter_list(r):
-            to_list = list(filter_list)
-            return [element for element in to_list if type(element) is int]
-        r = filter_list
-        f"{int(r) * amount}"
+
+
         total_base = json.loads(r.content)[keys[base]]
 
         return total_base
