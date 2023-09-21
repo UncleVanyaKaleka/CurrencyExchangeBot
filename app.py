@@ -1,6 +1,6 @@
 import telebot
 from config import keys, TOKEN
-from Utils import ConvertionException, CurrencyConverter
+from extensions import ConvertionException, CurrencyConverter
 
 
 bot = telebot.TeleBot(TOKEN)
@@ -30,7 +30,7 @@ def convert(message: telebot.types.Message):
             raise ConvertionException("Слишком много значений")
 
         quote, base, amount = values
-        total_base = CurrencyConverter(quote, base, amount)
+        total_base = CurrencyConverter.get_price(quote, base, amount)
     except ConvertionException as e:
         bot.reply_to(message, f"Ошибка пользователя \n{e}")
     except Exception as e:
