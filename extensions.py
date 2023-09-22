@@ -32,5 +32,5 @@ class CurrencyConverter:
 
 
         total_base = json.loads(r.content)[keys[base]]
-
-        return total_base
+        print(total_base, amount, total_base * amount)
+        return total_base * amount
